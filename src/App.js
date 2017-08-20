@@ -81,45 +81,48 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <header className="header">
-          <img src={logo} className="logo" alt="Logo Vestô" />
-          <p>Descubra uma nova forma de se vestir!</p>
-          <p>Cadastre-se e receba novidades Vestô.</p>
-          <p className="bold">Consuma consciente, consuma diferente.</p>
-        </header>
-        {this.state.successMessage && 
-            <p className="box-message box-success">Mensagem enviada com
-            sucesso!</p>}
-        <form className="form" onSubmit={this.addMessage.bind(this)}>
-          <FormErrors formErrors={this.state.formErrors} />
-          <input
-            id="completeName"
-            type="text"
-            placeholder="Nome Completo"
-            ref={el => (this.inputElName = el)}
-            value={this.state.name}
-            onChange={event => this.handleUserInput(event)}
-            name="name"
-            className="input"
-          />
-          <input
-            id="completeEmail"
-            type="text"
-            placeholder="Email"
-            ref={el => (this.inputElEmail = el)}
-            value={this.state.email}
-            onChange={event => this.handleUserInput(event)}
-            name="email"
-            className="input"
-          />
-          <button
-            className="submit-button"
-            disabled={!this.state.formValid}
-            type="submit"
-          >
-            Enviar
-          </button>
-        </form>
+        <div className="content">
+          <header className="header">
+            <img src={logo} className="logo" alt="Logo Vestô" />
+            <p>Descubra uma nova forma de se vestir!</p>
+            <p>Cadastre-se e receba novidades Vestô.</p>
+            <p className="bold">Consuma consciente, consuma diferente.</p>
+          </header>
+          {this.state.successMessage &&
+            <p className="box-message box-success">
+              Mensagem enviada com sucesso!
+            </p>}
+          <form className="form" onSubmit={this.addMessage.bind(this)}>
+            <FormErrors formErrors={this.state.formErrors} />
+            <input
+              id="completeName"
+              type="text"
+              placeholder="Nome Completo"
+              ref={el => (this.inputElName = el)}
+              value={this.state.name}
+              onChange={event => this.handleUserInput(event)}
+              name="name"
+              className="input"
+            />
+            <input
+              id="completeEmail"
+              type="text"
+              placeholder="Email"
+              ref={el => (this.inputElEmail = el)}
+              value={this.state.email}
+              onChange={event => this.handleUserInput(event)}
+              name="email"
+              className="input"
+            />
+            <button
+              className="submit-button"
+              disabled={!this.state.formValid}
+              type="submit"
+            >
+              Enviar
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

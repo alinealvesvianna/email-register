@@ -34,23 +34,106 @@ h6 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-.App {
-  text-align: center;
+.container {
   width: 100%;
+  padding: 0 1em;
+  margin: 0 auto;
+  max-width: 960px;
 }
 
-.App-logo {
-  height: 15em;
-  width: auto;
+.header{
+    width: 100%;
+    margin: 2em 0;
 }
 
-/* .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-} */
+.logo {
+  width: 15em;
+  height: auto;
+  margin: 0 auto 2em;
+}
 
-.App-intro {
-  font-size: large;
+p {
+  font-size: 1.5em;
+  color: #532e8c;
+  text-align: center;
+}
+
+.bold{
+    font-weight: bolder;
+}
+
+.box-message {
+    padding: 0.5em;
+    border-radius: 0.4em;
+    background: rgba(82, 46, 140, 0.20);
+    color: #532e8c;
+    margin-bottom: 1em;
+}
+
+.box-success {
+    background: rgba(2, 104, 59, 0.20);
+    color:#025024;
+}
+
+.form{
+    margin-top: 3em;
+}
+
+.input{
+    -webkit-appearance: none!important;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-color: #532e8c;
+    padding: .5rem;
+    font-size: 1.2rem;
+    color: #532e8c;
+    line-height: normal;
+    border-radius: 0.4em;
+    height: 3em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.submit-button{
+    background: #532e8c;
+    text-align: center;
+    padding: 1em 3em;
+    color: #fff;
+    border: none;
+    border-radius: 0.4em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.submit-button:disabled,
+.submit-button[disabled]{
+    background: rgba(82, 46, 140, 0.20);
+    cursor: not-allowed;
+}
+
+::-webkit-input-placeholder {
+    color: #532e8c;
+}
+
+:-moz-placeholder {
+    color: #532e8c;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #532e8c;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #532e8c;
+}
+
+::-ms-input-placeholder {
+color: #532e8c;
 }

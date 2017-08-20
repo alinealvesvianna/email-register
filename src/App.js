@@ -14,7 +14,8 @@ class App extends Component {
       formErrors: { email: "", name: "" },
       emailValid: false,
       nameValid: false,
-      formValid: false
+      formValid: false,
+      successMessage: false
     };
   }
 
@@ -30,6 +31,8 @@ class App extends Component {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
     let nameValid = this.state.nameValid;
+
+    this.setState({ successMessage: false });
 
     switch (fieldName) {
       case "email":
@@ -61,31 +64,34 @@ class App extends Component {
 
   addMessage(e) {
     e.preventDefault();
-    this.inputElEmail.value;
-
     /* Send the message to Firebase */
     fire.database().ref("messages").push({
       name: this.inputElName.value,
       email: this.inputElEmail.value
     });
-    this.inputElName.value = "";
-    this.inputElEmail.value = "";
+
+    this.setState({
+      successMessage: true,
+      email: "",
+      name: "",
+      formValid: false
+    });
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="Logo Vestô" />
+      <div className="container">
+        <header className="header">
+          <img src={logo} className="logo" alt="Logo Vestô" />
+          <p>Descubra uma nova forma de se vestir!</p>
+          <p>Cadastre-se e receba novidades Vestô.</p>
+          <p className="bold">Consuma consciente, consuma diferente.</p>
         </header>
-        <p>Descubra uma nova forma de se vestir! </p>
-        <p>Cadastre-se e receba novidades Vestô.</p>
-        <p>Consuma consciente, consuma diferente.</p>
-        <form onSubmit={this.addMessage.bind(this)}>
-          <div className="panel panel-default">
-            <FormErrors formErrors={this.state.formErrors} />
-          </div>
-          <label htmlFor="completeName">Nome Completo</label>
+        {this.state.successMessage && 
+            <p className="box-message box-success">Mensagem enviada com
+            sucesso!</p>}
+        <form className="form" onSubmit={this.addMessage.bind(this)}>
+          <FormErrors formErrors={this.state.formErrors} />
           <input
             id="completeName"
             type="text"
@@ -94,8 +100,8 @@ class App extends Component {
             value={this.state.name}
             onChange={event => this.handleUserInput(event)}
             name="name"
+            className="input"
           />
-          <label htmlFor="completeEmail">Email</label>
           <input
             id="completeEmail"
             type="text"
@@ -104,8 +110,15 @@ class App extends Component {
             value={this.state.email}
             onChange={event => this.handleUserInput(event)}
             name="email"
+            className="input"
           />
-          <input disabled={!this.state.formValid} type="submit" />
+          <button
+            className="submit-button"
+            disabled={!this.state.formValid}
+            type="submit"
+          >
+            Enviar
+          </button>
         </form>
       </div>
     );

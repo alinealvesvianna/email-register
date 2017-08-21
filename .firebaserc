@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "form-register"
+    "default": "form-register",
+    "production": "form-register"
   }
 }

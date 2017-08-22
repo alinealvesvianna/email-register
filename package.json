@@ -1,7 +1,7 @@
 {
   "name": "email-register",
   "version": "0.1.0",
-  "homepage": "http://vestobrasil.com",
+  "homepage": "https://vestobrasil.com",
   "private": true,
   "dependencies": {
     "firebase": "^4.2.0",

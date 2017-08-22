@@ -10,8 +10,8 @@ class App extends Component {
     this.state = {
       messages: [],
       email: "",
-      name: "",
-      formErrors: { email: "", name: "" },
+      nome: "",
+      formErrors: { email: "", nome: "" },
       emailValid: false,
       nameValid: false,
       formValid: false,
@@ -39,9 +39,9 @@ class App extends Component {
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? "" : " é inválido";
         break;
-      case "name":
+      case "nome":
         nameValid = value.length > 2;
-        fieldValidationErrors.name = nameValid ? "" : " é muito curto";
+        fieldValidationErrors.nome = nameValid ? "" : " é muito curto";
         break;
       default:
         break;
@@ -73,7 +73,7 @@ class App extends Component {
     this.setState({
       successMessage: true,
       email: "",
-      name: "",
+      nome: "",
       formValid: false
     });
   }
@@ -99,9 +99,9 @@ class App extends Component {
               type="text"
               placeholder="Nome Completo"
               ref={el => (this.inputElName = el)}
-              value={this.state.name}
+              value={this.state.nome}
               onChange={event => this.handleUserInput(event)}
-              name="name"
+              name="nome"
               className="input"
             />
             <input
